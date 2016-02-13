@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Stian Thaulow</title>
+  <style type="text/css">
+  body {
+    background-color: #202020;
+    text-align: center;
+    margin-top: 3em;
+  }
+  
+  img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+  }
+  
+  li {
+    display: inline-block;
+    margin: 0 0.75em;
+  }
+  
+  a {
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    display: block;
+    width: 50px;
+    height: 50px;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  a:hover {
+  	-webkit-filter: none;
+  	filter: none;
+  }
+  
+  .instagram {
+    background: url(instagram.png);    
+  }
+  
+  .facebook {
+    background: url(facebook.png);
+  }
+  
+  #snapchat {
+    background: url(snapchat.png);
+  }
+  
+  #snapcode {
+    position: absolute;
+    top: 3em;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 512px;
+    height: 512px;
+    background: url(snapcode.png);
+    background-size: 512px;
+    display: none;
+  }
+  </style>
+</head>
+
+<body>
+  <img src="bw.jpg" alt="Stian Thaulow">
+  <ul>
+    <li>
+      <a href="https://instagram.com/stianthaulow" class="instagram" title="@stianthaulow">https://instagram.com/stianthaulow</a>
+    </li>
+    <li>
+      <a href="https://facebook.com/stian" class="facebook" title="facebook.com/stian">https://facebook.com/stian</a>
+    </li>
+    <li>
+      <a href="#" id="snapchat" title="whoopwhoot">snapcode</a>
+    </li>
+  </ul>
+  <div id="snapcode"></div>
+  <script>
+  (function(el) {
+    var on = function(el, eventName, handler) {
+        if (el.addEventListener) {
+          el.addEventListener(eventName, handler);
+        } else {
+          el.attachEvent('on' + eventName, function() {
+            handler.call(el);
+          });
+        }
+      },
+      snapcode = document.getElementById('snapcode'),
+      showSnapCode = function() {
+        snapcode.style.display = 'block';
+      },
+      hideSnapCode = function() {
+        snapcode.style.display = 'none';
+      };
+    on(el, 'click', showSnapCode);
+    on(snapcode, 'click', hideSnapCode);
+    on(window, 'keydown', function(e) {
+      if (e.keyCode == 27) {
+        hideSnapCode();
+      }
+    });
+  })(document.getElementById('snapchat'));
+  </script>
+</body>
+
+</html>
